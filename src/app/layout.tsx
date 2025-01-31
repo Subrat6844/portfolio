@@ -1,6 +1,6 @@
 import "./globals.css"
 import { Poppins } from "next/font/google"
-import { Navbar } from "@/components/navbar"
+import  Navbar  from "@/components/navbar"
 import type React from "react"
 
 const poppins = Poppins({
