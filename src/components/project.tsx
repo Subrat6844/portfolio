@@ -61,8 +61,8 @@ export default function Projects() {
 					</span>
 				</h2>
 				<div className=" grid gap-8 md:grid-cols-2">
-					{projects.map((project) => (
-						<div className="relative rounded-xl">
+					{projects.map((project,index) => (
+						<div key={index} className="relative rounded-xl">
 							<Card
 								key={project.title}
 								className="bg-muted border-muted-foreground/20 overflow-hidden group transition-all duration-300"

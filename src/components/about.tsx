@@ -50,7 +50,7 @@ export function About() {
             transition={{ duration: 0.5, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            Hello! I'm Subrat Chaudhary, a passionate full-stack developer with a keen eye for creating seamless,
+            Hello! I&#39;m Subrat Chaudhary, a passionate full-stack developer with a keen eye for creating seamless,
             user-centric web applications. With a strong foundation in both front-end and back-end technologies, I
             specialize in building robust and scalable solutions that make a real impact.
           </motion.p>
@@ -62,7 +62,7 @@ export function About() {
             viewport={{ once: true }}
           >
             My journey in tech has equipped me with a diverse skill set, allowing me to tackle complex problems and
-            deliver high-quality results. I'm always excited to learn new technologies and push the boundaries of what's
+            deliver high-quality results. I&#39;m always excited to learn new technologies and push the boundaries of what&#39;s
             possible in web development.
           </motion.p>
 

@@ -13,7 +13,7 @@ export default function Contact() {
         <Card className="max-w-2xl mx-auto bg-muted border-muted-foreground/20">
           <CardHeader>
             <CardTitle>Contact Me</CardTitle>
-            <CardDescription>Fill out the form below and I'll get back to you as soon as possible.</CardDescription>
+            <CardDescription>Fill out the form below and I&#39;ll get back to you as soon as possible.</CardDescription>
           </CardHeader>
           <CardContent>
             <form className="space-y-4">
