@@ -54,7 +54,8 @@ module.exports = {
     			sm: 'calc(var(--radius) - 4px)'
     		},
     		animation: {
-    			orbit: 'orbit calc(var(--duration)*1s) linear infinite'
+    			orbit: 'orbit calc(var(--duration)*1s) linear infinite',
+    			'border-beam': 'border-beam calc(var(--duration)*1s) infinite linear'
     		},
     		keyframes: {
     			orbit: {
@@ -63,6 +64,11 @@ module.exports = {
     				},
     				'100%': {
     					transform: 'rotate(calc(var(--angle) * 1deg + 360deg)) translateY(calc(var(--radius) * 1px)) rotate(calc((var(--angle) * -1deg) - 360deg))'
+    				}
+    			},
+    			'border-beam': {
+    				'100%': {
+    					'offset-distance': '100%'
     				}
     			}
     		}
