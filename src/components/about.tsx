@@ -15,7 +15,6 @@ const skills = [
 export function About() {
   return (
     <section id="about" className=" bg-background relative overflow-hidden">
-      {/* Animated background elements */}
       <motion.div
         className="absolute inset-0 opacity-30 pointer-events-none"
         initial={{ opacity: 0 }}

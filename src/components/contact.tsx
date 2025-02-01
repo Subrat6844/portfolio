@@ -1,3 +1,4 @@
+"use client"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
@@ -20,7 +21,7 @@ export default function Contact() {
               <Input placeholder="Your Name" />
               <Input type="email" placeholder="Your Email" />
               <Textarea placeholder="Your Message" className="min-h-[100px]" />
-              <Button type="submit" className="w-full bg-primary hover:bg-primary/90">
+              <Button type="button" className="w-full bg-primary hover:bg-primary/90">
                 Send Message
               </Button>
             </form>

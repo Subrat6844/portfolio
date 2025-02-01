@@ -21,14 +21,14 @@ const projects = [
 		tools: ["Prisma", "PostgreSQL", "Stripe"],
 	},
 	{
-		title: "Task Management App",
+		title: "Resumed",
 		description:
-			"Collaborative task management platform with real-time updates and team workspace features",
-		image: "/placeholder.svg?height=400&width=600",
-		liveLink: "#",
-		githubLink: "#",
+			"A responsive and user-friendly resume builder with a clean and modern design for easy customization",
+		image: "/resumed.png",
+		liveLink: "https://resumed-app.vercel.app/",
+		githubLink: "https://github.com/Subrat6844/resumed",
 		tech: ["React", "Node.js", "Express"],
-		tools: ["MongoDB", "Socket.io", "Redis"],
+		tools: ["MongoDB","shadcn/ui","Gemini AI","Gemini SDK"],
 	},
 	{
 		title: "AI-Powered Chat",
@@ -43,11 +43,11 @@ const projects = [
 	{
 		title: "Portfolio Website",
 		description: "Modern portfolio website with dynamic content and animations",
-		image: "/placeholder.svg?height=400&width=600",
-		liveLink: "#",
-		githubLink: "#",
+		image: "/portfolio.png",
+		liveLink: "https://portfolio-six-lemon-26.vercel.app/",
+		githubLink: "https://github.com/Subrat6844/portfolio",
 		tech: ["Next.js", "TypeScript", "Tailwind CSS"],
-		tools: ["Framer Motion", "shadcn/ui", "MDX"],
+		tools: ["Framer Motion", "shadcn/ui","Magic UI"],
 	},
 ];
 
