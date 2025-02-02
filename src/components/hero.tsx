@@ -5,9 +5,8 @@ import Link from "next/link";
 import { motion, Variants } from "framer-motion";
 import { useMemo } from "react";
 
-// FloatingPaths Component
+// FloatingPaths Component (unchanged)
 function FloatingPaths({ position }: { position: number }) {
-  // Memoize the paths array so it only recomputes when `position` changes.
   const paths = useMemo(
     () =>
       Array.from({ length: 36 }, (_, i) => {
@@ -21,7 +20,7 @@ function FloatingPaths({ position }: { position: number }) {
             616 - i * 5 * position
           } ${470 - i * 6} ${684 - i * 5 * position} ${875 - i * 6} ${
             684 - i * 5 * position
-          } ${875 - i * 6}`,
+          } ${875 - i * 5 * position}`,
           color: `rgba(196, 193, 255, ${0.05 + i * 0.01})`,
           width: 0.5 + i * 0.03,
         };
@@ -63,7 +62,57 @@ function FloatingPaths({ position }: { position: number }) {
   );
 }
 
-// Variants for text and button animations.
+// Container variant for letter-by-letter animation
+const textContainer: Variants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.05,
+    },
+  },
+};
+
+// Variant for each letter
+const letterVariant: Variants = {
+  hidden: { opacity: 0, y: 50 },
+  visible: { opacity: 1, y: 0 },
+};
+
+// Updated AnimatedText component grouping letters into words
+interface AnimatedTextProps {
+  text: string;
+  className?: string;
+  style?: React.CSSProperties;
+}
+
+export function AnimatedText({ text, className, style }: AnimatedTextProps) {
+  // Split text by spaces into words.
+  const words = text.split(" ");
+  return (
+    <motion.span
+      className={`inline-block ${className ?? ""}`}
+      style={style}
+      variants={textContainer}
+      initial="hidden"
+      animate="visible"
+    >
+      {words.map((word, wordIndex) => (
+        // Wrap each word in a span to keep it together
+        <span key={wordIndex} className="inline-block whitespace-nowrap">
+          {word.split("").map((char, charIndex) => (
+            <motion.span key={charIndex} variants={letterVariant} className="inline-block">
+              {char}
+            </motion.span>
+          ))}
+          {/* Add a space between words */}
+          {wordIndex < words.length - 1 ? "\u00A0" : ""}
+        </span>
+      ))}
+    </motion.span>
+  );
+}
+
+// Common fade-up variant for paragraphs and buttons.
 const fadeUpVariant: Variants = {
   hidden: { opacity: 0, y: 50 },
   visible: { opacity: 1, y: 0 },
@@ -81,7 +130,7 @@ export function Hero() {
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center">
-          {/* Heading */}
+          {/* Heading with animated letters */}
           <motion.div
             initial="hidden"
             animate="visible"
@@ -89,13 +138,13 @@ export function Hero() {
             transition={{ duration: 0.8 }}
           >
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-[#C4C1FF] mb-6 leading-tight">
-              <span className="inline-block">Full-Stack Developer</span>
+              <AnimatedText text="Full-Stack Developer" />
               <br className="hidden sm:inline" />
               <span
                 className="inline-block bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent"
                 style={{ lineHeight: "1.3" }}
               >
-                Crafting Digital Experiences
+                <AnimatedText text="Crafting Digital Experiences" />
               </span>
             </h1>
           </motion.div>

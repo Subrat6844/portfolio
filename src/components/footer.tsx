@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Github, Linkedin, Mail } from "lucide-react";
 import type React from "react";
 import { motion } from "framer-motion";
+import { BoxReveal } from "./ui/box-reveal";
 
 const Twitter = () => (
 	<svg
@@ -23,8 +24,8 @@ export default function Footer() {
 			<div className="container mx-auto px-4 sm:px-6 lg:px-8">
 				<div className="flex flex-col items-center justify-between md:flex-row">
 					<div className="mb-4 md:mb-0">
-						<Link href="/" className="text-2xl font-bold text-primary">
-							Subrat Chaudhary
+						<Link href="/" className="uppercase text-xl font-bold text-white">
+							Subrat Chaudhary.
 						</Link>
 					</div>
 					<motion.div
