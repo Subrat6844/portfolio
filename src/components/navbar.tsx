@@ -5,6 +5,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { Logo } from "./logo";
 import type React from "react";
 import { BoxReveal } from "./ui/box-reveal";
 
@@ -23,23 +24,19 @@ export default function Navbar() {
 	return (
 		<nav
 			className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-				isScrolled ? "bg-background/80 backdrop-blur-md" : "bg-transparent"
+				isScrolled
+					? "bg-background/80 backdrop-blur-md shadow-lg"
+					: "bg-transparent"
 			}`}
 		>
 			<div className="container mx-auto px-4 sm:px-6 lg:px-8">
 				<div className="flex items-center justify-between h-16">
-					<BoxReveal>
-						<Link href="/" className="group">
-							<motion.span
-								initial={{ opacity: 0 }}
-								animate={{ opacity: 1 }}
-								transition={{ duration: 0.5 }}
-								className="text-xl uppercase font-bold text-white group-hover:opacity-80 transition-opacity"
-							>
-								Subrat Chaudhary.
-							</motion.span>
-						</Link>
-					</BoxReveal>
+					<Link href="/" className="group">
+						<BoxReveal>
+							<Logo showText={false} className="md:hidden" />
+							<Logo className="hidden md:flex" />
+						</BoxReveal>
+					</Link>
 					<div className="hidden md:flex space-x-4">
 						<BoxReveal>
 							<NavLink href="#about">About</NavLink>
@@ -63,18 +60,18 @@ export default function Navbar() {
 					</div>
 					<div className="md:hidden">
 						<BoxReveal>
-            <Button
-							variant="ghost"
-							size="icon"
-							onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-						>
-							{isMobileMenuOpen ? (
-								<X className="h-6 w-6" />
-							) : (
-								<Menu className="h-6 w-6" />
-							)}
-						</Button>
-            </BoxReveal>
+							<Button
+								variant="ghost"
+								size="icon"
+								onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+							>
+								{isMobileMenuOpen ? (
+									<X className="h-6 w-6" />
+								) : (
+									<Menu className="h-6 w-6" />
+								)}
+							</Button>
+						</BoxReveal>
 					</div>
 				</div>
 			</div>

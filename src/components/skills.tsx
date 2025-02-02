@@ -64,6 +64,7 @@ export function Skills() {
 							key={skill.name}
 							className="bg-muted/30 rounded-lg p-4 backdrop-blur-sm"
 							variants={itemVariants}
+							viewport={{ once: true }}
 						>
 							<div className="flex justify-between items-center mb-2">
 								<span className="text-lg font-semibold">{skill.name}</span>
@@ -75,7 +76,7 @@ export function Skills() {
 									initial={{ scaleX: 0 }}
 									whileInView={{ scaleX: 1 }}
 									viewport={{ once: true }}
-									transition={{ duration: 0.8, ease: "easeOut" }}
+									transition={{ duration: 1.5, ease: "easeOut" }}
 									style={{ originX: 0, width: `${skill.level}%` }}
 								/>
 							</div>

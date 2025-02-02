@@ -4,7 +4,7 @@ import { Skills } from "@/components/skills";
 import Projects from "@/components/project";
 import { OrbitalSkills } from "@/components/orbital-skills";
 import Contact from "@/components/contact";
-import Footer from "@/components/footer";
+import {Footer} from "@/components/footer";
 
 export default function Home() {
 	return (
