@@ -2,39 +2,43 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
-  :root {
-    --background: 240 20% 3%;
-    --foreground: 0 0% 100%;
-    --card: 240 20% 3%;
-    --card-foreground: 0 0% 100%;
-    --popover: 240 20% 3%;
-    --popover-foreground: 0 0% 100%;
-    --primary: 271 100% 50%;
-    --primary-foreground: 0 0% 100%;
-    --secondary: 240 19% 84%;
-    --secondary-foreground: 240 20% 3%;
-    --muted: 240 20% 20%;
-    --muted-foreground: 240 19% 84%;
-    --accent: 225 100% 70%;
-    --accent-foreground: 0 0% 100%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 100%;
-    --border: 240 20% 20%;
-    --input: 240 20% 20%;
-    --ring: 271 100% 50%;
-    --radius: 0.5rem;
-  }
-}
 
 @layer base {
   body {
-    @apply bg-background text-foreground font-sans;
+    @apply bg-background text-foreground font-sans font-medium;
   }
 }
 
 .font-sans {
   font-family:
-    var(--font-poppins), ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    var(--font-red-hat-display), ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+@layer utilities {
+  .animate-pulse {
+    animation: pulse 15s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  @keyframes pulse {
+    0%,
+    100% {
+      opacity: 0.5;
+    }
+    50% {
+      opacity: 0.1;
+    }
+  }
+}
+
+@layer utilities {
+  .font-semibold {
+    font-weight: 600;
+  }
+}
+
+.bg-grid-pattern {
+  background-image: linear-gradient(to right, rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+  background-size: 20px 20px;
 }
 

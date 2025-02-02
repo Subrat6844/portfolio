@@ -1,17 +1,16 @@
 import "./globals.css"
-import { Poppins } from "next/font/google"
-import  Navbar  from "@/components/navbar"
+import { Red_Hat_Display } from "next/font/google"
+import Navbar  from "@/components/navbar"
 import type React from "react"
 
-const poppins = Poppins({
+const redHatDisplay = Red_Hat_Display({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  variable: "--font-poppins",
+  variable: "--font-red-hat-display",
 })
 
 export const metadata = {
-  title: "Full Stack Developer Portfolio",
-  description: "Showcasing my skills and projects in web development",
+  title: "Subrat Chaudhary - Full Stack Developer",
+  description: "Portfolio of Subrat Chaudhary, a passionate full-stack developer crafting digital experiences.",
 }
 
 export default function RootLayout({
@@ -20,8 +19,8 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className="scroll-smooth">
-      <body className={`${poppins.variable} font-sans bg-background text-foreground`}>
+    <html lang="en" className={`scroll-smooth ${redHatDisplay.variable}`}>
+      <body className="font-sans bg-background text-foreground">
         <Navbar />
         {children}
       </body>

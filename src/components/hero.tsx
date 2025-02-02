@@ -1,26 +1,42 @@
-"use client"
+"use client";
 
-import { Button } from "@/components/ui/button"
-import Link from "next/link"
-import { motion } from "framer-motion"
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
+import { motion, Variants } from "framer-motion";
+import { useMemo } from "react";
 
+// FloatingPaths Component
 function FloatingPaths({ position }: { position: number }) {
-  const paths = Array.from({ length: 36 }, (_, i) => ({
-    id: i,
-    d: `M-${380 - i * 5 * position} -${189 + i * 6}C-${
-      380 - i * 5 * position
-    } -${189 + i * 6} -${312 - i * 5 * position} ${216 - i * 6} ${
-      152 - i * 5 * position
-    } ${343 - i * 6}C${616 - i * 5 * position} ${470 - i * 6} ${
-      684 - i * 5 * position
-    } ${875 - i * 6} ${684 - i * 5 * position} ${875 - i * 6}`,
-    color: `rgba(196, 193, 255, ${0.05 + i * 0.01})`,
-    width: 0.5 + i * 0.03,
-  }))
+  // Memoize the paths array so it only recomputes when `position` changes.
+  const paths = useMemo(
+    () =>
+      Array.from({ length: 36 }, (_, i) => {
+        const baseX = 380 - i * 5 * position;
+        const baseY = 189 + i * 6;
+        return {
+          id: i,
+          d: `M-${baseX} -${baseY} C-${baseX} -${baseY} -${
+            312 - i * 5 * position
+          } ${216 - i * 6} ${152 - i * 5 * position} ${343 - i * 6} C${
+            616 - i * 5 * position
+          } ${470 - i * 6} ${684 - i * 5 * position} ${875 - i * 6} ${
+            684 - i * 5 * position
+          } ${875 - i * 6}`,
+          color: `rgba(196, 193, 255, ${0.05 + i * 0.01})`,
+          width: 0.5 + i * 0.03,
+        };
+      }),
+    [position]
+  );
 
   return (
     <div className="absolute inset-0 pointer-events-none">
-      <svg className="w-full h-full text-[#C4C1FF]" viewBox="0 0 696 316" fill="none">
+      <svg
+        className="w-full h-full text-[#C4C1FF]"
+        viewBox="0 0 696 316"
+        fill="none"
+        aria-hidden="true"
+      >
         <title>Background Paths</title>
         {paths.map((path) => (
           <motion.path
@@ -37,19 +53,26 @@ function FloatingPaths({ position }: { position: number }) {
             }}
             transition={{
               duration: 20 + Math.random() * 10,
-              repeat: Number.POSITIVE_INFINITY,
+              repeat: Infinity,
               ease: "linear",
             }}
           />
         ))}
       </svg>
     </div>
-  )
+  );
 }
+
+// Variants for text and button animations.
+const fadeUpVariant: Variants = {
+  hidden: { opacity: 0, y: 50 },
+  visible: { opacity: 1, y: 0 },
+};
 
 export function Hero() {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      {/* Background gradient */}
       <div className="absolute inset-0 bg-gradient-radial from-primary/20 via-background to-background" />
 
       {/* Animated background elements */}
@@ -58,35 +81,40 @@ export function Hero() {
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center">
+          {/* Heading */}
           <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, staggerChildren: 0.05 }}
+            initial="hidden"
+            animate="visible"
+            variants={fadeUpVariant}
+            transition={{ duration: 0.8 }}
           >
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-[#C4C1FF] mb-6 leading-tight">
               <span className="inline-block">Full-Stack Developer</span>
               <br className="hidden sm:inline" />
               <span
-  className="inline-block bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent"
-  style={{ lineHeight: "1.3" }}
->
-  Crafting Digital Experiences
-</span>
-
+                className="inline-block bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent"
+                style={{ lineHeight: "1.3" }}
+              >
+                Crafting Digital Experiences
+              </span>
             </h1>
           </motion.div>
+          {/* Subheading */}
           <motion.p
             className="mt-4 text-lg sm:text-xl md:text-2xl text-secondary max-w-3xl mx-auto mb-8"
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
+            initial="hidden"
+            animate="visible"
+            variants={fadeUpVariant}
             transition={{ duration: 0.8, delay: 0.3 }}
           >
             Turning ideas into reality through code and creativity
           </motion.p>
+          {/* Buttons */}
           <motion.div
             className="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4 px-4 sm:px-0"
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
+            initial="hidden"
+            animate="visible"
+            variants={fadeUpVariant}
             transition={{ duration: 0.8, delay: 0.5 }}
           >
             <Button
@@ -106,6 +134,5 @@ export function Hero() {
         </div>
       </div>
     </section>
-  )
+  );
 }
-
