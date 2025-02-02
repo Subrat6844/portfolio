@@ -2,6 +2,30 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  :root {
+    --background: 240 20% 3%;
+    --foreground: 0 0% 100%;
+    --card: 240 20% 3%;
+    --card-foreground: 0 0% 100%;
+    --popover: 240 20% 3%;
+    --popover-foreground: 0 0% 100%;
+    --primary: 271 100% 50%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 240 19% 84%;
+    --secondary-foreground: 240 20% 3%;
+    --muted: 240 20% 20%;
+    --muted-foreground: 240 19% 84%;
+    --accent: 225 100% 70%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 240 20% 20%;
+    --input: 240 20% 20%;
+    --ring: 271 100% 50%;
+    --radius: 0.5rem;
+  }
+}
 
 @layer base {
   body {
