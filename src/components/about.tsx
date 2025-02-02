@@ -5,7 +5,7 @@ import Link from "next/link";
 import { motion, useReducedMotion, Variants } from "framer-motion";
 import { Code, Server, Database } from "lucide-react";
 import type React from "react";
-import { BoxReveal } from "./ui/box-reveal";
+
 
 
 const skills = [

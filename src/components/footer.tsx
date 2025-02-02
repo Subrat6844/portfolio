@@ -3,7 +3,7 @@ import Link from "next/link";
 import { Github, Linkedin, Mail } from "lucide-react";
 import type React from "react";
 import { motion } from "framer-motion";
-import { BoxReveal } from "./ui/box-reveal";
+
 
 const Twitter = () => (
 	<svg
